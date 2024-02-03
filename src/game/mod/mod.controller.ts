@@ -17,27 +17,6 @@ export class ModController {
   constructor(private readonly service: ModService) {}
 
   @ApiParam({
-    name: 'period',
-    description:
-      'The only accepted periods are 1d, 1w and 1m (1 day, 1 week and 1 month).',
-    example: '1d',
-  })
-  @ApiOperation({
-    summary: 'Returns a list of mods that have been updated in a given period',
-    description:
-      'Returns a list of mods that have been updated in a given period, with timestamps of their last update. Cached for 5 minutes.',
-  })
-  @ApiResponse({
-    status: 200,
-    type: [IModUpdated],
-    description: 'success',
-  })
-  @Get(':period')
-  updated(@Param('period') period: string) {
-    return this.service.updated(period);
-  }
-
-  @ApiParam({
     name: 'modId',
     example: '11',
   })
@@ -114,5 +93,26 @@ export class ModController {
   @Get('/latest/trending')
   trending() {
     return this.service.trending();
+  }
+
+  @ApiParam({
+    name: 'period',
+    description:
+      'The only accepted periods are 1d, 1w and 1m (1 day, 1 week and 1 month).',
+    example: '1d',
+  })
+  @ApiOperation({
+    summary: 'Returns a list of mods that have been updated in a given period',
+    description:
+      'Returns a list of mods that have been updated in a given period, with timestamps of their last update. Cached for 5 minutes.',
+  })
+  @ApiResponse({
+    status: 200,
+    type: [IModUpdated],
+    description: 'success',
+  })
+  @Get(':period')
+  updated(@Param('period') period: string) {
+    return this.service.updated(period);
   }
 }
