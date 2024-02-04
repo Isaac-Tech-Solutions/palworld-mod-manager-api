@@ -12,7 +12,7 @@ export class IModUpdated {
   latest_mod_activity: number;
 }
 
-export class IModLastAdded {
+export class IMod {
   @ApiProperty()
   name: string;
 
@@ -90,4 +90,21 @@ export class IModLastAdded {
 
   @ApiProperty()
   user: User;
+}
+
+export class IModChangeLogs {
+  @ApiProperty()
+  "1.1": [string];
+
+  @ApiProperty()
+  "1.2": [string];
+
+  @ApiProperty()
+  "1.3": [string];
+
+  @ApiProperty()
+  "1.4": [string];
+
+  @ApiProperty()
+  "1.5": [string];
 }

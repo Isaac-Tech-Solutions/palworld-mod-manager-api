@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 
-import { IModUpdated } from 'src/types';
+import { IMod, IModChangeLogs, IModUpdated } from 'src/types';
 
 @Injectable()
 export class ModService {
@@ -30,7 +30,7 @@ export class ModService {
     return data;
   }
 
-  async latestdAdded(): Promise<IModUpdated[]> {
+  async latestdAdded(): Promise<IMod[]> {
     const gameName = this.configService.get<string>('GAME_NAME', 'palworld');
     const { data } = await lastValueFrom(
       this.apiGet(`/games/${gameName}/mods/latest_added.json`),
@@ -38,7 +38,7 @@ export class ModService {
     return data;
   }
 
-  async latestUpdated(): Promise<IModUpdated[]> {
+  async latestUpdated(): Promise<IMod[]> {
     const gameName = this.configService.get<string>('GAME_NAME', 'palworld');
     const { data } = await lastValueFrom(
       this.apiGet(`/games/${gameName}/mods/latest_updated.json`),
@@ -46,7 +46,7 @@ export class ModService {
     return data;
   }
 
-  async trending(): Promise<IModUpdated[]> {
+  async trending(): Promise<IMod[]> {
     const gameName = this.configService.get<string>('GAME_NAME', 'palworld');
     const { data } = await lastValueFrom(
       this.apiGet(`/games/${gameName}/mods/trending.json`),
@@ -54,7 +54,7 @@ export class ModService {
     return data;
   }
 
-  async view(modId: number): Promise<IModUpdated[]> {
+  async view(modId: number): Promise<IMod[]> {
     const gameName = this.configService.get<string>('GAME_NAME', 'palworld');
     const { data } = await lastValueFrom(
       this.apiGet(`/games/${gameName}/mods/${modId}.json`),
@@ -62,7 +62,7 @@ export class ModService {
     return data;
   }
 
-  async changelogs(modId: number): Promise<IModUpdated[]> {
+  async changelogs(modId: number): Promise<IModChangeLogs> {
     const gameName = this.configService.get<string>('GAME_NAME', 'palworld');
     const { data } = await lastValueFrom(
       this.apiGet(`/games/${gameName}/mods/${modId}/changelogs.json`),

@@ -1,3 +1,3 @@
 export { User } from './user.type';
-export { IModLastAdded, IModUpdated } from './mod.type';
+export { IMod, IModUpdated, IModChangeLogs } from './mod.type';
 export { IModFile, IModFiles, IModFileUpdates } from './mod-files.type';

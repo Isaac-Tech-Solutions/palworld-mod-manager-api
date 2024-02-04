@@ -7,7 +7,7 @@ import {
   ApiBearerAuth,
 } from '@nestjs/swagger';
 
-import { IModLastAdded, IModUpdated } from 'src/types';
+import { IMod, IModChangeLogs, IModUpdated } from 'src/types';
 import { ModService } from './mod.service';
 
 @ApiBearerAuth()
@@ -26,7 +26,7 @@ export class ModController {
   })
   @ApiResponse({
     status: 200,
-    type: IModLastAdded,
+    type: IModChangeLogs,
     description: 'success',
   })
   @Get('/changelogs/:modId')
@@ -45,7 +45,7 @@ export class ModController {
   })
   @ApiResponse({
     status: 200,
-    type: IModLastAdded,
+    type: IMod,
     description: 'success',
   })
   @Get('/view/:modId')
@@ -59,7 +59,7 @@ export class ModController {
   })
   @ApiResponse({
     status: 200,
-    type: [IModLastAdded],
+    type: [IMod],
     description: 'success',
   })
   @Get('/latest')
@@ -73,7 +73,7 @@ export class ModController {
   })
   @ApiResponse({
     status: 200,
-    type: [IModLastAdded],
+    type: [IMod],
     description: 'success',
   })
   @Get('/latest/updated')
@@ -87,7 +87,7 @@ export class ModController {
   })
   @ApiResponse({
     status: 200,
-    type: [IModLastAdded],
+    type: [IMod],
     description: 'success',
   })
   @Get('/latest/trending')
