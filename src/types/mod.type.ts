@@ -94,17 +94,5 @@ export class IMod {
 
 export class IModChangeLogs {
   @ApiProperty()
-  "1.1": [string];
-
-  @ApiProperty()
-  "1.2": [string];
-
-  @ApiProperty()
-  "1.3": [string];
-
-  @ApiProperty()
-  "1.4": [string];
-
-  @ApiProperty()
-  "1.5": [string];
+  key: [string];
 }
