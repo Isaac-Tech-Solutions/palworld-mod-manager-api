@@ -12,7 +12,7 @@ import { ModService } from './mod.service';
 
 @ApiBearerAuth()
 @ApiTags('Mods')
-@Controller('mod')
+@Controller('mods')
 export class ModController {
   constructor(private readonly service: ModService) {}
 
