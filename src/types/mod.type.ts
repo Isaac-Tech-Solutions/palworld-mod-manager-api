@@ -96,3 +96,61 @@ export class IModChangeLogs {
   @ApiProperty()
   key: [string];
 }
+
+export class IModSearchResult {
+  @ApiProperty()
+  url: string;
+
+  @ApiProperty()
+  name: string;
+
+  @ApiProperty()
+  adult: false;
+
+  @ApiProperty()
+  image: string;
+
+  @ApiProperty()
+  mod_id: number;
+
+  @ApiProperty()
+  user_id: number;
+
+  @ApiProperty()
+  game_id: number;
+
+  @ApiProperty()
+  username: string;
+
+  @ApiProperty()
+  game_name: string;
+
+  @ApiProperty()
+  downloads: number;
+
+  @ApiProperty()
+  endorsements: number;
+}
+
+export class IModSearch {
+  @ApiProperty()
+  took: number;
+
+  @ApiProperty()
+  total: number;
+  
+  @ApiProperty()
+  terms: [string];
+
+  @ApiProperty()
+  include_adult: false;
+
+  @ApiProperty()
+  exclude_tags: [string];
+
+  @ApiProperty()
+  exclude_authors: [string];
+
+  @ApiProperty()
+  results: IModSearchResult[];
+}

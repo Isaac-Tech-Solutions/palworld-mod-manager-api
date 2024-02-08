@@ -7,7 +7,7 @@ import {
   ApiBearerAuth,
 } from '@nestjs/swagger';
 
-import { IMod, IModChangeLogs, IModUpdated } from 'src/types';
+import { IMod, IModChangeLogs, IModSearch, IModUpdated } from 'src/types';
 import { ModService } from './mod.service';
 
 @ApiBearerAuth()
@@ -15,6 +15,24 @@ import { ModService } from './mod.service';
 @Controller('mods')
 export class ModController {
   constructor(private readonly service: ModService) {}
+
+  @ApiParam({
+    name: 'search',
+    example: 'mapunlocker'
+  })
+  @ApiOperation({
+    summary: 'Returns the search for a desired mod',
+    description: 'Returns the search for a desired mod.',
+  })
+  @ApiResponse({
+    status: 200,
+    type: IModSearch,
+    description: 'success',
+  })
+  @Get('/search/:search')
+  search(@Param('search') search: string) {
+    return this.service.search(search);
+  }
 
   @ApiParam({
     name: 'modId',
