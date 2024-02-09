@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
+
+import { ApiModule } from 'src/core/api/api.module';
 
 import { ModService } from './mod.service';
 import { ModController } from './mod.controller';
 
 @Module({
-  imports: [HttpModule],
+  imports: [ApiModule],
   providers: [ModService],
   controllers: [ModController],
 })

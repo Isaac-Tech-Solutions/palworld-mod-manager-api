@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
 
-import { ModFilesController } from './mod-files.controller';
+import { ApiModule } from 'src/core/api/api.module';
+
 import { ModFilesService } from './mod-files.service';
+import { ModFilesController } from './mod-files.controller';
 
 @Module({
-  imports: [HttpModule],
+  imports: [ApiModule],
   controllers: [ModFilesController],
   providers: [ModFilesService]
 })

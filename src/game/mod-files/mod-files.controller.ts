@@ -1,13 +1,13 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import {
-  ApiBearerAuth,
-  ApiOperation,
+  ApiTags,
   ApiParam,
   ApiResponse,
-  ApiTags,
+  ApiOperation,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
 
-import { IModFiles } from 'src/types';
+import { IModFiles } from 'src/core';
 import { ModFilesService } from './mod-files.service';
 
 @ApiBearerAuth()
